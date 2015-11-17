@@ -1,0 +1,28 @@
+<div class="row">
+  <% @contacts.each do |contact| %>
+  <center>
+    <div class ="col-sm-4">
+      <div class ="product-box">
+        <p><%= link_to  contact.full_name, "/contacts/#{contact.id} "%>
+          <p>First Name:  <%= contact.first_name %></p>
+          <p>Middle Name:  <%= contact.middle_name %></p>
+          <p>Last Name: <%= contact.last_name %></p>
+          <p>Email: <%= contact.email %></p>
+          <p>Phone Number: <%= contact.phone_number %></p>
+          <p>Bio: <%= contact.bio %></p>
+          <!-- <p>Contact Added On: <%= contact.friendly_created_at %></p> -->
+          <!-- Single button -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Modify Contact <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+            <li><%= link_to "Edit", "/contacts/#{contact.id}/edit" %></li>
+              <li><%= link_to "Delete", "/contacts/#{contact.id}", method: :delete %></li>
+            </ul>
+          </div>
+        </div>
+      </div> 
+  </center>
+  <% end %>
+</div>

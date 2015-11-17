@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>Nick's Contact List
+  <small>Super Secret!</small></h1>
+</div>
+
+<% @details.each do |name| %>
+First Name: <%= name.first_name %><br>Middle Name: <%=name.middle_name %><br>Last Name: <%=name.last_name %><br>Email: <%=name.email %><br>Phone Number: <%=name.phone_number %><br>Bio: <%=name.bio %><br><br>
+<% end %>

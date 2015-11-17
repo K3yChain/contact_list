@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>Nick's Contact List
+  <small>Add Contacts</small></h1>
+</div>
+
+<%= form_tag '/create_contact', method: :post do %>
+<div>
+  <%= label_tag :first_name %>
+  <%= text_field_tag :first_name %>
+</div>
+<div>
+  <%= label_tag :middle_name %>
+  <%= text_field_tag :middle_name %>
+</div>
+<div>
+  <%= label_tag :last_name %>
+  <%= text_field_tag :last_name %>
+</div>
+<div>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+</div>
+<div>
+  <%= label_tag :phone_number %>
+  <%= text_field_tag :phone_number %>
+</div>
+<div>
+  <%= label_tag :bio %>
+  <%= text_field_tag :bio %>
+</div>
+<div>
+  <%= submit_tag "Submit Contact" %>
+</div>
+<% end %>
