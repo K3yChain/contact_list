@@ -4,12 +4,13 @@
     <div class ="col-sm-4">
       <div class ="product-box">
         <p><%= link_to  contact.full_name, "/contacts/#{contact.id} "%>
-          <p>First Name:  <%= contact.first_name %></p>
-          <p>Middle Name:  <%= contact.middle_name %></p>
-          <p>Last Name: <%= contact.last_name %></p>
-          <p>Email: <%= contact.email %></p>
-          <p>Phone Number: <%= contact.phone_number %></p>
-          <p>Bio: <%= contact.bio %></p>
+          <p>First Name:  <strong><%= contact.first_name %></strong></p>
+          <p>Middle Name:  <strong><%= contact.middle_name %></strong></p>
+          <p>Last Name: <strong><%= contact.last_name %></strong></p>
+          <p>Email: <strong><%= contact.email %></strong></p>
+          <p>Phone Number: <strong><%= contact.phone_number %></strong></p>
+          <p>Bio: <strong><%= contact.bio %></strong></p>
+          <hr>
           <!-- <p>Contact Added On: <%= contact.friendly_created_at %></p> -->
           <!-- Single button -->
           <div class="btn-group">
