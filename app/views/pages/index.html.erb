@@ -1,29 +1,31 @@
 <div class="row">
   <% @contacts.each do |contact| %>
-  <center>
-    <div class ="col-sm-4">
-      <div class ="product-box">
-        <p><%= link_to  contact.full_name, "/contacts/#{contact.id} "%>
-          <p>First Name:  <strong><%= contact.first_name %></strong></p>
-          <p>Middle Name:  <strong><%= contact.middle_name %></strong></p>
-          <p>Last Name: <strong><%= contact.last_name %></strong></p>
-          <p>Email: <strong><%= contact.email %></strong></p>
-          <p>Phone Number: <strong><%= contact.phone_number %></strong></p>
-          <p>Bio: <strong><%= contact.bio %></strong></p>
-          <hr>
-          <!-- <p>Contact Added On: <%= contact.friendly_created_at %></p> -->
-          <!-- Single button -->
-          <div class="btn-group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Modify Contact <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
+  <div class ="col-sm-4">
+    <div class ="product-box">
+      <br>
+      <center><p><h4><%= link_to  contact.full_name, "/contacts/#{contact.id} "%></center></h4></p>
+      <hr>
+      <p><strong>Email: </strong><%= contact.email %></p>
+      <p><strong>Phone Number: </strong><%= contact.phone_number %></p>
+      <p><strong>Bio: </strong><%= contact.bio %></p>
+      <p><strong>Address:</u></p></strong>
+      <p><%= contact.address %></p>
+      <p><strong>Lat: </strong><%= contact.latitude %>, <strong>Long: </strong><%= contact.longitude %></p>
+      <hr>
+      <!-- <p>Contact Added On: <%= contact.friendly_created_at %></p> -->
+      <!-- Single button -->
+      <center>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modify Contact <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
             <li><%= link_to "Edit", "/contacts/#{contact.id}/edit" %></li>
-              <li><%= link_to "Delete", "/contacts/#{contact.id}", method: :delete %></li>
-            </ul>
-          </div>
+            <li><%= link_to "Delete", "/contacts/#{contact.id}", method: :delete %></li>
+          </ul>
         </div>
-      </div> 
+      </div>
+    </div> 
   </center>
   <% end %>
 </div>

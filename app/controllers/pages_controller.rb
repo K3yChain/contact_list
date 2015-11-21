@@ -4,6 +4,12 @@ def index
   @contacts = Contact.all
 end
 
+def search
+    search_term = params[:search]
+    @contacts = Contact.where("first_name LIKE '%#{search_term}%' OR last_name LIKE '%#{search_term}%'")
+    render :index
+end
+
 def new
 end
 
@@ -14,7 +20,11 @@ def create
   email = params[:email]
   phone_number = params[:phone_number]
   bio = params[:bio]
-  Contact.create(first_name: first_name, middle_name: middle_name, last_name: last_name, email: email, phone_number: phone_number, bio: bio)
+  address = params[:address]
+  coordinates = Geocoder.coordinates(address)
+  latitude = coordinates[0]
+  longitude = coordinates[1]
+  Contact.create(first_name: first_name, middle_name: middle_name, last_name: last_name, email: email, phone_number: phone_number, bio: bio, address: address, latitude: latitude, longitude: longitude)
   redirect_to "/contacts/#{}"
   flash[:success] = "Contact Created: #{name}"
 end
@@ -39,7 +49,11 @@ def update
   email = params[:email]
   phone_number = params[:phone_number]
   bio = params[:bio]
-  contact.update(first_name: first_name, middle_name: middle_name, last_name: last_name, email: email, phone_number: phone_number, bio: bio)
+  address = params[:address]
+  coordinates = Geocoder.coordinates(address)
+  latitude = coordinates[0]
+  longitude = coordinates[1]
+  contact.update(first_name: first_name, middle_name: middle_name, last_name: last_name, email: email, phone_number: phone_number, bio: bio, address: address,latitude: latitude, longitude: longitude)
   flash[:success] = "Contact Updated: #{first_name}"
   redirect_to "/contacts/#{contact.id}"
 end

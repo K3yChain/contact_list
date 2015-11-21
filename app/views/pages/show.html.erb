@@ -6,10 +6,14 @@
 <p>Email: <%= @contact.email %></p>
 <p>Phone Number: <%= @contact.phone_number %></p>
 <p>Bio:  <%= @contact.bio %></p>
+<p>Address: <%= @contact.address %></p>
+<p>Latitude: <%= @contact.latitude %></p>
+<p>Longitude: <%= @contact.longitude %></p>
 
 <p>Contact Added On: <%= @contact.friendly_created_at %></p>
-
-
+<br>
+<hr>
+<center>
 <!-- Single button -->
 <div class="btn-group">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -20,4 +24,5 @@
     <li><%= link_to "Delete", "/contacts/#{@contact.id}", method: :delete %></li>
   </ul>
 </div>
+</center>
 </div>

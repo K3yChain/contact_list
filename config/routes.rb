@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get '/', to: 'pages#index'
   get '/contacts', to: 'pages#index'
   get '/contacts/new', to: 'pages#new'
   get '/contacts/:id', to: 'pages#show'
   get '/contacts/:id/edit', to: 'pages#edit'
   post '/contacts', to: 'pages#create'
+  post '/contacts/search', to: 'pages#search'
   delete '/contacts/:id', to: 'pages#destroy'
   patch '/contacts/:id', to: 'pages#update'
 
