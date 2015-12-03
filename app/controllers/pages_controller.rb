@@ -1,7 +1,12 @@
 class PagesController < ApplicationController
 
 def index
-  @contacts = Contact.all
+  @contacts = Group.all
+  if params[:category]
+    @contacts = Category.find_by(name: params[:category]).pages
+  else
+    @contacts = Contact.all
+  end
 end
 
 def search
